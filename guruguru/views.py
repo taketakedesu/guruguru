@@ -5,6 +5,8 @@ from django.shortcuts import render, get_object_or_404
 from .forms import PostForm
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
+from .forms import SignUpForm
+
 
 def blog(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
@@ -65,3 +67,14 @@ def post_remove(request, pk):
     post.delete()
     return redirect('post_list')
 
+def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('blog')
+    else:
+        form = SignUpForm()
+
+    context = {'form':form}
+    return render(request, 'guruguru/post_edit.html' , context) # リダイレクト

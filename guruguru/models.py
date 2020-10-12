@@ -1,11 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
-
-class Tag(models.Model):
- tag = models.CharField('タグ名', max_length=50)
- def __str__(self):
-   return self.tag
+from django.contrib.auth import get_user_model
 
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -20,3 +16,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class Likes(models.Model):
+     '''いいね'''
+     articles = models.ForeignKey('Post', on_delete=models.CASCADE)
+     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+     created_at = models.DateTimeField(auto_now_add=True)
