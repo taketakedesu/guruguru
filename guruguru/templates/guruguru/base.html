@@ -73,9 +73,12 @@
                 <ul>
                     <li class="fh5co-active"><a href="{% url 'post_list' %}">Home</a></li>
                     <li><a href="{% url 'blog' %}">shops</a></li>
-                    <li><a href="portfolio.html">favorite</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a href="portfolio.html">favorite</a></li>
+                    {% else %}
+                        <li><a href="{% url 'login' %}">login</a></li>
+                    {% endif %}
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
                 </ul>
             </nav>
 

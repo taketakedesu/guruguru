@@ -7,7 +7,11 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 
 def blog(request):
-    return render(request, 'guruguru/blog.html', {})
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    return render(request, 'guruguru/blog.html', {'posts': posts})
+
+def contact(request):
+    return render(request, 'guruguru/contact.html', {})
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')

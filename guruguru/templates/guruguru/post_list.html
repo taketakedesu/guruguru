@@ -39,7 +39,7 @@
                   <div class="row">
                       <div class="col-md-8 col-md-offset-2 text-center js-fullheight slider-text">
                           <div class="slider-text-inner">
-                              <h1>SNSにアップされた写真や動画を元にお店を紹介</h1>
+                              <h1>美味しいお店を紹介</h1>
                                   <h2>guruguru Made by <a href="http://freehtml5.co/" target="_blank">takeshima</a></h2>
                                   <p><a class="btn btn-primary btn-demo popup-vimeo" href="https://vimeo.com/channels/staffpicks/93951774"> <i class="icon-monitor"></i> 早速お店を探す</a> <a class="btn btn-primary btn-learn">とりあえず写真みる<i class="icon-arrow-right3"></i></a></p>
                           </div>
@@ -61,7 +61,7 @@
                   </div>
                   <div class="fh5co-text">
                       <h3>Strategy</h3>
-                      <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+                      <p>美味しい飲食店を紹介しています </p>
                   </div>
               </div>
           </div>
@@ -72,7 +72,7 @@
                   </div>
                   <div class="fh5co-text">
                       <h3>Explore</h3>
-                      <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+                      <p>色々な場面を想定し、ばえるお店を探せます。</p>
                   </div>
               </div>
           </div>
@@ -83,8 +83,8 @@
                       <i class="icon-paperplane"></i>
                   </div>
                   <div class="fh5co-text">
-                      <h3>Direction</h3>
-                      <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+                      <h3>favorite</h3>
+                      <p>ログインすることでお気に入り登録できます </p>
                   </div>
               </div>
           </div>
@@ -94,8 +94,8 @@
                       <i class="icon-params"></i>
                   </div>
                   <div class="fh5co-text">
-                      <h3>Expertise</h3>
-                      <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+                      <h3>free</h3>
+                      <p>使用料は無料です。</p>
                   </div>
               </div>
           </div>
@@ -167,13 +167,4 @@
           </div>
       </div>
   </div>
-    {% for post in posts %}
-        <div class="post">
-            <div class="date">
-                <p>published: {{ post.published_date }}</p>
-            </div>
-            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-            <p>{{ post.text|linebreaksbr }}</p>
-        </div>
-    {% endfor %}
 {% endblock %}
