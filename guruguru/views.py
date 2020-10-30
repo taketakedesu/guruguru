@@ -23,6 +23,13 @@ def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'guruguru/post_detail.html', {'post': post})
 
+def followPlace(request, pk):
+    """場所をお気に入り登録する"""
+    place = get_object_or_404(Place, pk=pk)
+    request.user.favorite_place.add(place)
+    return redirect('post_detail')
+
+
 @login_required
 def post_new(request):
     if request.method == "POST":
